@@ -3,13 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "android": "yarn set:development && react-native run-android",
+    "android:prod": "yarn set:prod && react-native run-android",
+    "android:staging": "yarn set:staging && react-native run-android",
+    "ios": "yarn set:development && react-native run-ios",
+    "ios:prod": "yarn set:prod && react-native run-ios",
+    "ios:staging": "yarn set:staging && react-native run-ios",
     "start": "react-native start",
+    "set:development": "echo \"export default 'development';\"> ./envs/env.js",
+    "set:prod": "echo \"export default 'production';\"> ./envs/env.js",
+    "set:staging": "echo \"export default 'staging';\"> ./envs/env.js",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "envs": "./envs",
     "react": "16.13.1",
     "react-native": "0.63.2"
   },
